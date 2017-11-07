@@ -1,0 +1,15 @@
+<div class="row">
+	<h1> Editando restaurante </h1>
+</div>
+<div class="row">
+	<%= form_tag restaurant_path, :method => :put do %>
+		<div class="form-group">
+		  <label for="restaurant">Nome</label>
+		  <%= text_field_tag :name, @restaurant[:name],  class: 'form-control' %>
+		</div>
+		<div class="form-group">
+			<%= link_to "Cancelar", restaurants_path, class: "btn btn-danger" %>
+			<%= submit_tag "Atualizar", class: "btn btn-success" %>
+		</div>
+	<%end%>
+</div>

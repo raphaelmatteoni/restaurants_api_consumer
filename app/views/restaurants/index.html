@@ -1,0 +1,31 @@
+<div class="row">
+	<h1> Restaurantes </h1>
+</div>
+
+<div class="row">
+	<%= render partial: "restaurants/filter" %>
+</div>
+
+<div class="row">
+	<table class="table table-striped table-bordered table-hover">
+		<thead>
+			<tr>
+				<th colspan="2">Ações</th>
+				<th>Nome</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @restaurants.each do | restaurant | %>
+				<tr>
+					<td>
+						<%= link_to "<i class='glyphicon glyphicon-trash'></i>".html_safe, restaurant_path(restaurant[:id]), :method => 'delete', :data => { :confirm => 'Tem certeza?' } %>
+					</td>
+					<td>
+						<%= link_to "<i class='glyphicon glyphicon-edit'></i>".html_safe, edit_restaurant_path(restaurant[:id]) %>
+					</td>
+					<td class="col-md-11"><%= restaurant[:name] %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

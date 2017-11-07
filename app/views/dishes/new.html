@@ -1,0 +1,19 @@
+<div class="row">
+	<h1> Cadastrando prato </h1>
+</div>
+<div class="row">
+	<%= form_tag dishes_path, :method => :post do %>
+		<div class="form-group">
+		  <label for="dish">Restaurante</label>
+		  <%= select_tag :restaurant_id, options_for_select(@restaurants.map { |obj| [obj[:name], obj[:id]] }), class: 'form-control' %>
+		  <label for="dish">Nome</label>
+		  <%= text_field_tag :name, nil,  class: 'form-control' %>
+		  <label for="dish">Preço</label>
+		  <%= text_field_tag :price, nil,  class: 'form-control' %>
+		</div>
+		<div class="form-group">
+			<%= link_to "Cancelar", dishes_path, class: "btn btn-danger" %>
+			<%= submit_tag "Salvar", class: "btn btn-success" %>
+		</div>
+	<%end%>
+</div>
